@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 // import classes from "./AddComment.module.css";
 import InputWithIcon from "../UI/InputWithIcon";
-
+import { useContext } from "react";
+import { Context as commentContext } from "../context/Comment";
 function AddComment({ reply, onCommentAdd }) {
   console.log("IM REPLY:::", reply);
   const [comment, setComment] = useState("");
+  const { state, addComment } = useContext(commentContext);
 
   const onChangeHandler = (event) => {
     setComment(event.target.value);
@@ -29,7 +31,7 @@ function AddComment({ reply, onCommentAdd }) {
       delete newComment.replies;
     }
 
-    onCommentAdd(newComment);
+    addComment(newComment);
     setComment("");
   };
   return (

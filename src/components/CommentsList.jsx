@@ -1,6 +1,7 @@
 import React from "react";
 import Comments from "./Comments";
 
+//this compornt renders comments list.
 function CommentsList({ comments }) {
   return (
     <section>

@@ -19,7 +19,7 @@ export const COMMENTS = [
     like_count: 1,
     replies: [
       {
-        id: 0,
+        id: 4,
         img: "user4.png",
         user_name: "John Doe",
         comment: "Old rivalry! Consider me in ;-)",
@@ -39,7 +39,7 @@ export const COMMENTS = [
     replies: [],
   },
   {
-    id: 0,
+    id: 3,
     img: "user4.png",
     user_name: "John Doe",
     comment: "Thank You All",
@@ -48,3 +48,51 @@ export const COMMENTS = [
     replies: [],
   },
 ];
+// CommentContext.js
+// import React, { createContext, useReducer, useContext } from "react";
+
+// const CommentContext = createContext();
+
+// export const useCommentContext = () => {
+//   return useContext(CommentContext);
+// };
+
+// const initialState = {
+//   repliedComments: [],
+//   likeCount: 0,
+//   liked: false,
+//   showInput: false,
+// };
+
+// const commentReducer = (state, action) => {
+//   switch (action.type) {
+//     case "ADD_REPLY":
+//       return {
+//         ...state,
+//         repliedComments: [...state.repliedComments, action.payload],
+//       };
+//     case "TOGGLE_INPUT":
+//       return {
+//         ...state,
+//         showInput: !state.showInput,
+//       };
+//     case "TOGGLE_LIKE":
+//       return {
+//         ...state,
+//         liked: !state.liked,
+//         likeCount: state.liked ? state.likeCount - 1 : state.likeCount + 1,
+//       };
+//     default:
+//       return state;
+//   }
+// };
+
+// export const CommentProvider = ({ children }) => {
+//   const [state, dispatch] = useReducer(commentReducer, initialState);
+
+//   return (
+//     <CommentContext.Provider value={{ state, dispatch }}>
+//       {children}
+//     </CommentContext.Provider>
+//   );
+// };
