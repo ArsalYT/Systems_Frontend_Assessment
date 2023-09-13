@@ -1,0 +1,13 @@
+@import url(../UI/Fonts/fonts.css);
+.buttons {
+  justify-content: space-between;
+}
+.container {
+  box-shadow: 0px 6px 20px 0px rgba(140, 151, 164, 0.2);
+  width: 656px;
+  height: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  list-style: none;
+  background-color: white;
+}
