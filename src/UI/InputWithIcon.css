@@ -1,0 +1,18 @@
+/* InputWithIcon.css */
+.input-container {
+  position: relative;
+  display: inline-block;
+}
+
+input[type="text"] {
+  /* Adjust the padding as needed to accommodate the icon */
+  width: 100%; /* Ensure the input takes up all available width */
+}
+
+i {
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Adjust the right value to control the icon's position */
+  transform: translateY(-50%);
+  pointer-events: none; /* Ensures that the icon doesn't interfere with user interactions */
+}
