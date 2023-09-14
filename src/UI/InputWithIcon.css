@@ -25,7 +25,7 @@ i {
   height: 44px; /* Set the height to 44px */
   padding: 12px; /* Add 12px padding */
   background: rgba(255, 255, 255, 1);
-  box-shadow: 0px 6px 20px 0px rgba(140, 151, 164, 0.2);
+  /* box-shadow: 0px 6px 20px 0px rgba(140, 151, 164, 0.2); */
 }
 
 /* Style the input field */
@@ -44,7 +44,60 @@ i {
   background: rgba(248, 249, 251, 1);
   color: white;
   border: none;
-  padding: 12px; /* Add 12px padding to match the container */
-  border-radius: 5px;
+  padding: 10px; /* Add 12px padding to match the container */
+
   cursor: pointer;
+}
+
+/* InputWithIcon.css
+.input-container {
+  position: relative;
+  display: inline-block;
+  display: flex;
+  margin: 0 26px 0 26px;
+} */
+
+/* input[type="text"] {
+  
+  width: 100%; 
+}
+
+i {
+  position: absolute;
+  top: 50%;
+  right: 10px; 
+  transform: translateY(-50%);
+  pointer-events: none; 
+} */
+
+.heart_count {
+  display: flex;
+  align-items: center;
+}
+.heart_count p {
+  color: #757575;
+  font-size: 14px;
+  font-weight: 300;
+  margin-left: 4px;
+  margin-bottom: 5px;
+}
+.btn {
+  border: none;
+}
+.input_field {
+  padding: 12px;
+  border: none;
+}
+.input_field::placeholder {
+  font-weight: 300;
+  size: 14px;
+}
+.input_field:focus {
+  font-weight: 300;
+  size: 14px;
+  border: none;
+  outline: none;
+}
+.form_btn {
+  border: none;
 }

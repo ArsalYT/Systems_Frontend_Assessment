@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { Context as commentContext } from "../context/Comment";
-
+import classes from "./AddComment.module.css";
 import InputWithIcon from "../UI/InputWithIcon";
 
 function AddComment({ reply, commentId }) {
@@ -36,11 +36,13 @@ function AddComment({ reply, commentId }) {
     setComment("");
   };
   return (
-    <InputWithIcon
-      onChange={onChangeHandler}
-      onSubmit={submitHandler}
-      value={comment}
-    />
+    <div className={classes.container}>
+      <InputWithIcon
+        onChange={onChangeHandler}
+        onSubmit={submitHandler}
+        value={comment}
+      />
+    </div>
   );
 }
 

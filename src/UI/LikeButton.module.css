@@ -4,7 +4,7 @@
   background: transparent;
 }
 .like-button {
-  fill: red;
+  fill: white;
   stroke: grey;
 }
 .like-button-clicked {

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import LikeButton from "../UI/LikeButton";
 import { Context as commentContext } from "../context/Comment";
+import classes from "./Comments.module.css";
 function CommentItem({
   reply,
   id,
@@ -23,29 +24,37 @@ function CommentItem({
     removeComment(id);
   };
   return (
-    <div>
+    <div className={classes.comment_container}>
       <div>
         <img src={img} alt="" />
       </div>
-      <div>{user_name}</div>
-      <div>
-        <p>{comment}</p>
-      </div>
-      <div>
-        <LikeButton
-          liked={liked}
-          count={like_count}
-          type="submit"
-          onClick={likeHandler}
-        />
-        {/* <button type="">button1</button> */}
-        {user_name === "John Doe" ? (
-          <button onClick={removeHandler}>Remove</button>
-        ) : (
-          <button type="checkbox" onClick={replyToggle}>
-            Reply
-          </button>
-        )}
+      <div className={classes?.ml12}>
+        <h3 className={classes?.title}>{user_name}</h3>
+        <p className={classes?.comment_para}>{comment}</p>
+        <div className={classes?.buttons}>
+          <LikeButton
+            liked={liked}
+            count={like_count}
+            type="submit"
+            onClick={likeHandler}
+          />
+          <div className={classes.circle}></div>
+          <div>
+            {user_name === "John Doe" ? (
+              <button className={classes.delete_btn} onClick={removeHandler}>
+                Remove
+              </button>
+            ) : (
+              <button
+                className={classes.reply_btn}
+                type="checkbox"
+                onClick={replyToggle}
+              >
+                Reply
+              </button>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

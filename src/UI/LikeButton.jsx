@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import LikeIcon from "./LikeIcon"; // Import your heart icon component
 import classes from "./LikeButton.module.css";
-
+import "./InputWithIcon.css";
 function LikeButton({ count, onClick, type, liked }) {
-  const fill = liked ? "red" : "white";
+  const fill = liked ? "#e33e38" : "white";
   return (
-    <>
-      <p>{count}</p>
+    <div className="heart_count">
       <button
         className={
           liked ? classes["like-button-clicked"] : classes["like-button"]
@@ -15,9 +14,9 @@ function LikeButton({ count, onClick, type, liked }) {
         onClick={onClick}
       >
         <LikeIcon fill={fill} />
-        {/* Pass the style to the heart icon component */}
       </button>
-    </>
+      <p>{count}</p>
+    </div>
   );
 }
 
