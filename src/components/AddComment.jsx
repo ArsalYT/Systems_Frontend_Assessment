@@ -38,6 +38,7 @@ function AddComment({ reply, commentId }) {
   return (
     <div className={classes.container}>
       <InputWithIcon
+        reply={reply}
         onChange={onChangeHandler}
         onSubmit={submitHandler}
         value={comment}

@@ -31,6 +31,10 @@
   display: flex;
   margin: 12px;
 }
+.container-reply {
+  display: flex;
+  margin-left: 50px;
+}
 .title {
   font-weight: 500;
   size: 14px;
@@ -50,6 +54,7 @@
   font-weight: 500;
   margin: 0 0 6px 16px;
   background: transparent;
+  cursor: pointer;
 }
 .delete_btn {
   border: none;
@@ -58,6 +63,7 @@
   font-weight: 500;
   margin: 0 0 6px 16px;
   background: transparent;
+  cursor: pointer;
 }
 .circle {
   height: 4px;

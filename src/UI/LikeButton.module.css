@@ -2,6 +2,7 @@
 .like-button-clicked {
   border: none;
   background: transparent;
+  cursor: pointer;
 }
 .like-button {
   fill: white;

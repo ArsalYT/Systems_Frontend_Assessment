@@ -21,11 +21,21 @@ i {
   display: flex;
   align-items: center;
   justify-content: space-between; /* This aligns items with space between them */
-  width: 632px; /* Set the width to 632px */
+  width: 656px; /* Set the width to 632px */
   height: 44px; /* Set the height to 44px */
   padding: 12px; /* Add 12px padding */
   background: rgba(255, 255, 255, 1);
   /* box-shadow: 0px 6px 20px 0px rgba(140, 151, 164, 0.2); */
+}
+.input-container-reply {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* This aligns items with space between them */
+  width: 566px; /* Set the width to 632px */
+  height: 44px; /* Set the height to 44px */
+  padding: 12px; /* Add 12px padding */
+  margin-left: 66px;
+  background: rgba(255, 255, 255, 1);
 }
 
 /* Style the input field */
@@ -34,7 +44,7 @@ i {
   border: none;
   outline: none;
   background: rgba(248, 249, 251, 1);
-  padding: 0; /* Reset the padding to 0, as padding is included in the container */
+  padding-left: 10px; /* Reset the padding to 0, as padding is included in the container */
   width: 100%; /* Make the input field take up all available space */
   height: 100%; /* Make the input field take up all available space */
 }

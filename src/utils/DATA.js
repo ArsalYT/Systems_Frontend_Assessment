@@ -19,7 +19,7 @@ export const COMMENTS = [
     like_count: 1,
     replies: [
       {
-        id: 4,
+        id: 0,
         img: "user4.png",
         user_name: "John Doe",
         comment: "Old rivalry! Consider me in ;-)",

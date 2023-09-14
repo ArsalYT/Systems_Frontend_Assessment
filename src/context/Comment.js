@@ -36,7 +36,6 @@ const commentReducer = (state, action) => {
             ...comment.replies,
             { ...newReply, id: comment.replies.length + 1 },
           ];
-          console.log({ ...comment, replies: updatedReplies });
           return { ...comment, replies: updatedReplies };
         }
 
@@ -51,6 +50,7 @@ const commentReducer = (state, action) => {
           const updatedReplies = comment.replies.filter(
             (reply) => reply.id !== replyId
           );
+          console.log(updatedReplies);
           return { ...comment, replies: updatedReplies };
         }
         return comment;

@@ -13,6 +13,10 @@ function CommentItem({
   like_count,
   replyToggle,
 }) {
+  const replyContainer = reply
+    ? classes["container-reply"]
+    : classes.comment_container;
+
   const { likeComment, removeComment, likeReply, removeReply } =
     useContext(commentContext);
   const likeHandler = () => {
@@ -21,10 +25,10 @@ function CommentItem({
   };
   const removeHandler = () => {
     if (reply) removeReply({ parentId: commentId, replyId: id });
-    removeComment(id);
+    else removeComment(id);
   };
   return (
-    <div className={classes.comment_container}>
+    <div className={replyContainer}>
       <div>
         <img src={img} alt="" />
       </div>
