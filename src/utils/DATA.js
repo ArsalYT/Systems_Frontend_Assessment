@@ -5,8 +5,8 @@ export const COMMENTS = [
     user_name: "Maria",
     comment:
       "I was very glad to have you after such a long time. Can you plan a meetup? Maybe this weekend?",
-    liked: false,
-    like_count: 2,
+    liked: true,
+    like_count: 1,
     replies: [],
   },
   {
@@ -15,7 +15,7 @@ export const COMMENTS = [
     user_name: "Alex Benjamin",
     comment:
       "Home sweet home! I'm glad you are back. It's been two year and miss the football matches we have together. A lot has been changed since you left. Let's meet at the ground tomorrow evening?",
-    liked: false,
+    liked: true,
     like_count: 1,
     replies: [
       {

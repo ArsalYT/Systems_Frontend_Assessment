@@ -7,7 +7,7 @@ import { COMMENTS } from "../utils/DATA";
 const commentReducer = (state, action) => {
   switch (action.type) {
     case "add_comment":
-      return [...state, action.payload];
+      return [...state, { ...action.payload, id: state.length + 1 }];
 
     case "remove_comment":
       return state.filter((comment) => comment.id !== action.payload);
@@ -29,11 +29,17 @@ const commentReducer = (state, action) => {
 
     case "add_reply": {
       const { parentId, newReply } = action.payload;
+
       const updatedState = state.map((comment) => {
         if (comment.id === parentId) {
-          const updatedReplies = [...comment.replies, newReply];
+          const updatedReplies = [
+            ...comment.replies,
+            { ...newReply, id: comment.replies.length + 1 },
+          ];
+          console.log({ ...comment, replies: updatedReplies });
           return { ...comment, replies: updatedReplies };
         }
+
         return comment;
       });
       return updatedState;
@@ -90,16 +96,16 @@ const removeComment = (dispatch) => (id) => {
 const likeComment = (dispatch) => (id) => {
   dispatch({ type: "like_comment", payload: id });
 };
-const addReply = (dispatch) => (parentId, newReply) => {
-  dispatch({ type: "add_reply", payload: { parentId, newReply } });
+const addReply = (dispatch) => (data) => {
+  dispatch({ type: "add_reply", payload: data });
 };
 
-const removeReply = (dispatch) => (parentId, replyId) => {
-  dispatch({ type: "remove_reply", payload: { parentId, replyId } });
+const removeReply = (dispatch) => (data) => {
+  dispatch({ type: "remove_reply", payload: data });
 };
 
-const likeReply = (dispatch) => (parentId, replyId) => {
-  dispatch({ type: "like_reply", payload: { parentId, replyId } });
+const likeReply = (dispatch) => (data) => {
+  dispatch({ type: "like_reply", payload: data });
 };
 
 //exporting  reducer, actions and initial state.

@@ -1,59 +1,48 @@
-import React, { useState } from "react";
+import { useContext, useState } from "react";
+import { Context as commentContext } from "../context/Comment";
+// CSS import.
 import classes from "./Comments.module.css";
+//Component Imports
 import AddComment from "./AddComment";
 import CommentItem from "./CommentItem";
-
 import LikeButton from "../UI/LikeButton";
-function Comments({ img, user_name, comment, replies, liked, like_count }) {
-  const [replied_Comments, setReplies] = useState(replies);
-  const [count, setCount] = useState(like_count);
-  const [like, setLike] = useState(liked);
+
+function Comments({ id, img, user_name, comment, replies, liked, like_count }) {
+  const { likeComment, removeComment /*likeReply, */ } =
+    useContext(commentContext);
   const [showInput, setInput] = useState(false);
 
-  const replyHandler = () => {
+  const replyToggle = () => {
     setInput((prev) => {
       return !prev;
     });
   };
 
-  const countHandler = () => {
-    if (like) setCount((c) => c - 1);
-    else setCount((c) => c + 1);
-    setLike((prev) => {
-      return !prev;
-    });
+  const likeCommentHandler = () => {
+    likeComment(id);
   };
-
-  const newReplyHandler = (newReply) => {
-    setReplies((prev) => [...prev, newReply]);
-    setInput(false);
+  const removeCommentHandler = () => {
+    removeComment(id);
   };
+  const likeReplyHandler = () => {};
   return (
     <li className={classes.container}>
-      <CommentItem img={img} user_name={user_name} comment={comment} />
-      <div className={classes.buttons}>
-        <LikeButton
-          liked={like}
-          count={count}
-          type="submit"
-          onClick={countHandler}
-        />
-        {/* <button type="">button1</button> */}
-        {user_name === "John Doe" ? (
-          <button>Remove</button>
-        ) : (
-          <button type="checkbox" onClick={replyHandler}>
-            Reply
-          </button>
-        )}
-      </div>
+      <CommentItem
+        id={id}
+        img={img}
+        user_name={user_name}
+        comment={comment}
+        replyToggle={replyToggle}
+        liked={liked}
+        like_count={like_count}
+      />
 
-      {replied_Comments.length > 0 &&
-        replied_Comments.map((reply) => (
-          <CommentItem key={reply.id} {...reply} />
+      {replies.length > 0 &&
+        replies.map((reply) => (
+          <CommentItem commentId={id} key={reply.id} reply {...reply} />
         ))}
 
-      {showInput && <AddComment reply onCommentAdd={newReplyHandler} />}
+      {showInput && <AddComment reply commentId={id} />}
     </li>
   );
 }

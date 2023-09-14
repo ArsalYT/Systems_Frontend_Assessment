@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-// import classes from "./AddComment.module.css";
-import InputWithIcon from "../UI/InputWithIcon";
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { Context as commentContext } from "../context/Comment";
-function AddComment({ reply, onCommentAdd }) {
-  const { state, addComment } = useContext(commentContext);
+
+import InputWithIcon from "../UI/InputWithIcon";
+
+function AddComment({ reply, commentId }) {
+  const { addComment, addReply } = useContext(commentContext);
   const [comment, setComment] = useState("");
 
   const onChangeHandler = (event) => {
@@ -17,7 +17,6 @@ function AddComment({ reply, onCommentAdd }) {
     if (comment.trim().length === 0) return;
 
     const newComment = {
-      id: Math.random(),
       img: "user4.png",
       user_name: "John Doe",
       comment: comment,
@@ -29,8 +28,11 @@ function AddComment({ reply, onCommentAdd }) {
     if (reply) {
       delete newComment.replies;
     }
-
-    addComment(newComment);
+    if (reply) {
+      addReply({ parentId: commentId, newReply: newComment });
+    } else {
+      addComment(newComment);
+    }
     setComment("");
   };
   return (
