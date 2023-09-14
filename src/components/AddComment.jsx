@@ -4,9 +4,8 @@ import InputWithIcon from "../UI/InputWithIcon";
 import { useContext } from "react";
 import { Context as commentContext } from "../context/Comment";
 function AddComment({ reply, onCommentAdd }) {
-  console.log("IM REPLY:::", reply);
-  const [comment, setComment] = useState("");
   const { state, addComment } = useContext(commentContext);
+  const [comment, setComment] = useState("");
 
   const onChangeHandler = (event) => {
     setComment(event.target.value);

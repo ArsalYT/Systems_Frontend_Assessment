@@ -32,7 +32,12 @@ function Comments({ img, user_name, comment, replies, liked, like_count }) {
     <li className={classes.container}>
       <CommentItem img={img} user_name={user_name} comment={comment} />
       <div className={classes.buttons}>
-        <LikeButton count={count} type="submit" onClick={countHandler} />
+        <LikeButton
+          liked={like}
+          count={count}
+          type="submit"
+          onClick={countHandler}
+        />
         {/* <button type="">button1</button> */}
         {user_name === "John Doe" ? (
           <button>Remove</button>

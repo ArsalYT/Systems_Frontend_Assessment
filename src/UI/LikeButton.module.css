@@ -1,0 +1,13 @@
+.like-button,
+.like-button-clicked {
+  border: none;
+  background: transparent;
+}
+.like-button {
+  fill: red;
+  stroke: grey;
+}
+.like-button-clicked {
+  fill: #e33e38 !important;
+  stroke: none;
+}
